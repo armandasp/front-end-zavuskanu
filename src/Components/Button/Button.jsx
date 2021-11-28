@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./Button.styles";
 
-const Button = ({ color, type, children, handleChange }) => {
+const Button = ({ color, type, children, handleClick, id }) => {
   let background;
 
   switch (color) {
@@ -16,9 +16,10 @@ const Button = ({ color, type, children, handleChange }) => {
   }
   return (
     <S.Button
+      id={Number(id)}
       style={{ background: background }}
       type={type || "button"}
-      onChange={handleChange}
+      onClick={handleClick}
     >
       {children}
     </S.Button>

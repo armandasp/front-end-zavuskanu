@@ -4,12 +4,12 @@ export const NavStyle = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #eee;
+  background: #858181;
   padding: 1rem;
 `;
 
 export const Img = styled.img`
-  height: 3rem;
+  height: 6rem;
 `;
 
 // export const LinkStyle = styled.Link`

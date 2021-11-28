@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Nav, Block } from "../../Components";
 import * as S from "./Sets.styles";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Contexts/Auth";
 
 const links = [
   { title: "Pradžia", to: "/" },
@@ -11,6 +12,7 @@ const links = [
 ];
 
 const Sets = () => {
+  const authContext = useContext(AuthContext);
   const [items, setItems] = useState();
 
   useEffect(() => {
@@ -39,7 +41,33 @@ const Sets = () => {
 
       {items && (
         <S.SectionStyle className="blocks">
-          <Block blocks={items} name="Į krepšelį"/>
+          <Block
+            blocks={items}
+            name="Į krepšelį"
+            handleClick={(e) => {
+              e.preventDefault();
+              console.log(e.target);
+              fetch(
+                `http://localhost:3000/v1/carts/addSet/${Number(e.target.id)}`,
+                {
+                  method: "POST",
+                  headers: {
+                    authorization: `Bearer ${authContext.token}`,
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(items),
+                }
+              )
+                .then((res) => res.json())
+                .then((data) => {
+                  if (!data.msg) {
+                    alert(data.err);
+                  }
+                  alert("Prekė pridėta į krepšelį");
+                })
+                .catch((err) => alert(err));
+            }}
+          />
         </S.SectionStyle>
       )}
     </div>

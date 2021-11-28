@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./Block.styles";
 import { Button } from "../../Components";
 
-const Block = ({ blocks, name, handleClick }) => {
+const Block = ({ blocks, name, handleClick, children }) => {
   return (
     <>
       {blocks &&
@@ -14,6 +14,7 @@ const Block = ({ blocks, name, handleClick }) => {
             <Button id={block.id} handleClick={handleClick}>
               {name}
             </Button>
+            {children}
           </S.Block>
         ))}
     </>

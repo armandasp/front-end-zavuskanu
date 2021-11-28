@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Nav, Block } from "../../Components";
+import { Nav, Block, Button } from "../../Components";
 import { Link } from "react-router-dom";
 import * as S from "./Carts.styles";
 import { AuthContext } from "../../Contexts/Auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../../fontawesome";
 
 const links = [
   { title: "Pradžia", to: "/" },
@@ -46,7 +48,31 @@ const Carts = () => {
 
       {items && (
         <S.SectionStyle className="blocks">
-          <Block blocks={items} />
+          <Block blocks={items}>
+            <Button
+              color="secondary"
+              handleClick={(e) => {
+                e.preventDefault();
+                console.log(e.target)
+                fetch(
+                  `http://localhost:3000/v1/carts/delete/${Number(
+                    e.target.id
+                  )}`,
+                  {
+                    method: "DELETE",
+                    headers: {
+                      authorization: `Bearer ${authContext.token}`,
+                    },
+                  }
+                )
+                  .then((res) => res.json())
+                  .then((data) => alert("Prekė pašalinta"))
+                  .catch((err) => alert(err));
+              }}
+            >
+              <FontAwesomeIcon icon={["far", "trash-alt"]} />
+            </Button>
+          </Block>
         </S.SectionStyle>
       )}
     </div>

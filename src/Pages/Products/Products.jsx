@@ -49,8 +49,9 @@ const Products = () => {
             name="Į krepšelį"
             handleClick={(e) => {
               e.preventDefault();
+              console.log(e.target);
               fetch(
-                `http://localhost:3000/v1/carts/add/${Number(e.target.id)}`,
+                `http://localhost:3000/v1/carts/addProduct/${Number(e.target.id)}`,
                 {
                   method: "POST",
                   headers: {
@@ -65,8 +66,9 @@ const Products = () => {
                   if (!data.msg) {
                     alert(data.err);
                   }
-                  alert(`${e.target.title} pridėtas į krepšelį`);
-                });
+                  alert("Prekė pridėta į krepšelį");
+                })
+                .catch((err) => alert(err));
             }}
           />
         </S.SectionStyle>

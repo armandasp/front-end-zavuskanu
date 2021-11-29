@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Nav, Block } from "../../Components";
+import { Nav, Block, Footer } from "../../Components";
 import * as S from "./Products.styles";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/Auth";
@@ -14,8 +14,6 @@ const links = [
 const Products = () => {
   const authContext = useContext(AuthContext);
   const [items, setItems] = useState();
-
-  // console.log(items);
 
   useEffect(() => {
     fetch("http://localhost:3000/v1/products")
@@ -51,7 +49,9 @@ const Products = () => {
               e.preventDefault();
               console.log(e.target);
               fetch(
-                `http://localhost:3000/v1/carts/addProduct/${Number(e.target.id)}`,
+                `http://localhost:3000/v1/carts/addProduct/${Number(
+                  e.target.id
+                )}`,
                 {
                   method: "POST",
                   headers: {
@@ -73,6 +73,7 @@ const Products = () => {
           />
         </S.SectionStyle>
       )}
+      <Footer />
     </div>
   );
 };

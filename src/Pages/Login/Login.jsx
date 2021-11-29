@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Nav, Button, Form } from "../../Components";
+import { Nav, Button, Form, Footer } from "../../Components";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/Auth";
 import { useNavigate } from "react-router-dom";
@@ -71,6 +71,7 @@ const Login = () => {
           Neturite paskyros? <Link to="/register">Registruotis</Link>
         </p>
       </Form>
+      <Footer />
     </>
   );
 };

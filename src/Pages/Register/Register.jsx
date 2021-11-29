@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Nav, Button, Form } from "../../Components";
+import { Nav, Button, Form, Footer } from "../../Components";
 import { Link } from "react-router-dom";
 import { Navigate } from "react-router";
 
@@ -75,6 +75,7 @@ const Register = () => {
           Jau turite paskyrą? Prisijunkite <Link to="/login">čia</Link>
         </p>
       </Form>
+      <Footer />
     </>
   );
 };

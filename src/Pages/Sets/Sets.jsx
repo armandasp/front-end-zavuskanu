@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Nav, Block } from "../../Components";
+import { Nav, Block, Footer } from "../../Components";
 import * as S from "./Sets.styles";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/Auth";
@@ -70,6 +70,7 @@ const Sets = () => {
           />
         </S.SectionStyle>
       )}
+      <Footer />
     </div>
   );
 };

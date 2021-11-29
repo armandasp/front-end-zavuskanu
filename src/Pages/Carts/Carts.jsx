@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Nav, Block, Button } from "../../Components";
+import { Nav, Block, Footer } from "../../Components";
 import { Link } from "react-router-dom";
 import * as S from "./Carts.styles";
 import { AuthContext } from "../../Contexts/Auth";
@@ -48,33 +48,31 @@ const Carts = () => {
 
       {items && (
         <S.SectionStyle className="blocks">
-          <Block blocks={items}>
-            <Button
-              color="secondary"
-              handleClick={(e) => {
-                e.preventDefault();
-                console.log(e.target)
-                fetch(
-                  `http://localhost:3000/v1/carts/delete/${Number(
-                    e.target.id
-                  )}`,
-                  {
-                    method: "DELETE",
-                    headers: {
-                      authorization: `Bearer ${authContext.token}`,
-                    },
-                  }
-                )
-                  .then((res) => res.json())
-                  .then((data) => alert("Prekė pašalinta"))
-                  .catch((err) => alert(err));
-              }}
-            >
-              <FontAwesomeIcon icon={["far", "trash-alt"]} />
-            </Button>
-          </Block>
+          <Block
+            blocks={items}
+            name={<FontAwesomeIcon icon={["far", "trash-alt"]} />}
+            color="secondary"
+            handleClick={(e) => {
+              e.preventDefault();
+              console.log(e.target);
+              fetch(
+                `http://localhost:3000/v1/carts/delete/${Number(e.target.id)}`,
+                {
+                  method: "DELETE",
+                  headers: {
+                    authorization: `Bearer ${authContext.token}`,
+                  },
+                }
+              )
+                .then((res) => res.json())
+                .then((data) => {
+                  alert("Prekė pašalinta")})
+                .catch((err) => alert(err));
+            }}
+          />
         </S.SectionStyle>
       )}
+      <Footer />
     </div>
   );
 };

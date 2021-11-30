@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Nav, Block, Footer } from "../../Components";
+import { Nav, Footer, Table } from "../../Components";
 import { Link } from "react-router-dom";
 import * as S from "./Carts.styles";
 import { AuthContext } from "../../Contexts/Auth";
@@ -26,7 +26,7 @@ const Carts = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.err) {
-          return alert(data.err);
+          return alert("Esate neprisijungęs(-usi)");
         }
         setItems(data);
       })
@@ -48,7 +48,42 @@ const Carts = () => {
 
       {items && (
         <S.SectionStyle className="blocks">
-          <Block
+          <Table
+            rows={items}
+            name={<FontAwesomeIcon icon={["far", "trash-alt"]} />}
+            color="secondary"
+            handleClick={(e) => {
+              e.preventDefault();
+              fetch(
+                `http://localhost:3000/v1/carts/delete/${Number(e.target.id)}`,
+                {
+                  method: "DELETE",
+                  headers: {
+                    authorization: `Bearer ${authContext.token}`,
+                  },
+                }
+              )
+                .then((res) => res.json())
+                .then((data) => {
+                  alert("Prekė pašalinta");
+                  fetch("http://localhost:3000/v1/carts", {
+                    headers: {
+                      authorization: `Bearer ${authContext.token}`,
+                    },
+                  })
+                    .then((res) => res.json())
+                    .then((data) => {
+                      if (data.err) {
+                        return alert("Esate neprisijungęs(-usi)");
+                      }
+                      setItems(data);
+                    })
+                    .catch((err) => alert(err));
+                })
+                .catch((err) => alert(err));
+            }}
+          />
+          {/* <Block
             blocks={items}
             name={<FontAwesomeIcon icon={["far", "trash-alt"]} />}
             color="secondary"
@@ -66,10 +101,24 @@ const Carts = () => {
               )
                 .then((res) => res.json())
                 .then((data) => {
-                  alert("Prekė pašalinta")})
+                  alert("Prekė pašalinta");
+                  fetch("http://localhost:3000/v1/carts", {
+                    headers: {
+                      authorization: `Bearer ${authContext.token}`,
+                    },
+                  })
+                    .then((res) => res.json())
+                    .then((data) => {
+                      if (data.err) {
+                        return alert("Esate neprisijungęs(-usi)");
+                      }
+                      setItems(data);
+                    })
+                    .catch((err) => alert(err));
+                })
                 .catch((err) => alert(err));
             }}
-          />
+          /> */}
         </S.SectionStyle>
       )}
       <Footer />

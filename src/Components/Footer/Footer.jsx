@@ -12,7 +12,7 @@ const Footer = () => {
                     <S.Icon href="https://www.facebook.com/">
                     <FontAwesomeIcon icon={["fab", "facebook"]} />
                     </S.Icon>
-                    <S.Icon href="https://www.instagram.com/">
+                    <S.Icon href="https://www.instagram.com/zavuskanu/">
                     <FontAwesomeIcon icon={["fab", "instagram"]} />
                     </S.Icon>
                     <S.Icon href="https://twitter.com/">

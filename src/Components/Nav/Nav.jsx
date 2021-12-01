@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as S from "./Nav.styles";
-import img from "./ZaVuskanu.png"
+import img from "./ZaVuskanu.png";
+import { Button } from "../../Components";
+
+
 
 const Nav = ({ links }) => {
   return (
-    <S.NavStyle>
+    <S.NavStyle className="links">
       <S.Img src={img} alt="ZaVuskanu" />
       <div>
         {links &&
@@ -14,6 +17,11 @@ const Nav = ({ links }) => {
               {link.title}
             </Link>
           ))}
+      </div>
+      <div className="buttons">
+        <Link to="/login">
+          <Button color="primary">Prisijungti</Button>
+        </Link>
       </div>
     </S.NavStyle>
   );

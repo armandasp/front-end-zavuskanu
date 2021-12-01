@@ -5,10 +5,11 @@ import { AuthContext } from "../../Contexts/Auth";
 import { useNavigate } from "react-router-dom";
 
 const links = [
-  { title: "Pradžia", to: "/" },
-  { title: "Apie mus", to: "/add" },
-  { title: "Prisijungti", to: "/login" },
-  { title: "Registruotis", to: "/register" },
+  { title: "Prekės", to: "/" },
+  { title: "Rinkiniai", to: "/sets" },
+  { title: "Apie mus", to: "/" },
+  { title: "Kontaktai", to: "/" },
+  { title: "Krepšelis", to: "/carts" },
 ];
 
 const Login = () => {
@@ -60,7 +61,7 @@ const Login = () => {
             .catch((err) => alert(err.message))
             .finally(() => e.target.reset());
         }}
-        title="Login"
+        title="Prisijungti"
         inputs={inputs}
       >
         <Button color="primary" type="submit">

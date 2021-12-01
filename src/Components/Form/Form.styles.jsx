@@ -7,6 +7,7 @@ export const Div = styled.div`
   width: 30%;
   margin: 0 auto;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 `;
 
 export const Input = styled.input`

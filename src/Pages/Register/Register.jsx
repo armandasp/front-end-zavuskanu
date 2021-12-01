@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import { Navigate } from "react-router";
 
 const links = [
-  { title: "Pradžia", to: "/" },
-  { title: "Apie mus", to: "/add" },
-  { title: "Prisijungti", to: "/login" },
-  { title: "Registruotis", to: "/register" },
+  { title: "Prekės", to: "/" },
+  { title: "Rinkiniai", to: "/sets" },
+  { title: "Apie mus", to: "/" },
+  { title: "Kontaktai", to: "/" },
+  { title: "Krepšelis", to: "/carts" },
 ];
 
 const Register = () => {
@@ -65,7 +66,7 @@ const Register = () => {
               <Navigate replace to="/login" />;
             });
         }}
-        title="Register"
+        title="Registruotis"
         inputs={inputs}
       >
         <Button color="primary" type="submit">

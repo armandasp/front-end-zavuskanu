@@ -3,12 +3,14 @@ import { Nav, Block, Footer } from "../../Components";
 import * as S from "./Sets.styles";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/Auth";
+import img from "./foto.JPG";
 
 const links = [
-  { title: "Pradžia", to: "/" },
-  { title: "Apie mus", to: "/add" },
-  { title: "Prisijungti", to: "/login" },
-  { title: "Registruotis", to: "/register" },
+  { title: "Prekės", to: "/" },
+  { title: "Rinkiniai", to: "/sets" },
+  { title: "Apie mus", to: "/" },
+  { title: "Kontaktai", to: "/" },
+  { title: "Krepšelis", to: "/carts" },
 ];
 
 const Sets = () => {
@@ -29,6 +31,8 @@ const Sets = () => {
   return (
     <div>
       <Nav links={links} />
+
+      <S.Img src={img} alt="tree" />
       <h1>Rinkiniai</h1>
 
       <Link to="/">Produktai</Link>

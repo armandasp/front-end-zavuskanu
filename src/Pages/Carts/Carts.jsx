@@ -7,10 +7,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../fontawesome";
 
 const links = [
-  { title: "Pradžia", to: "/" },
-  { title: "Apie mus", to: "/add" },
-  { title: "Prisijungti", to: "/login" },
-  { title: "Registruotis", to: "/register" },
+  { title: "Prekės", to: "/" },
+  { title: "Rinkiniai", to: "/sets" },
+  { title: "Apie mus", to: "/" },
+  { title: "Kontaktai", to: "/" },
+  { title: "Krepšelis", to: "/carts" },
 ];
 
 const Carts = () => {
@@ -83,42 +84,6 @@ const Carts = () => {
                 .catch((err) => alert(err));
             }}
           />
-          {/* <Block
-            blocks={items}
-            name={<FontAwesomeIcon icon={["far", "trash-alt"]} />}
-            color="secondary"
-            handleClick={(e) => {
-              e.preventDefault();
-              console.log(e.target);
-              fetch(
-                `http://localhost:3000/v1/carts/delete/${Number(e.target.id)}`,
-                {
-                  method: "DELETE",
-                  headers: {
-                    authorization: `Bearer ${authContext.token}`,
-                  },
-                }
-              )
-                .then((res) => res.json())
-                .then((data) => {
-                  alert("Prekė pašalinta");
-                  fetch("http://localhost:3000/v1/carts", {
-                    headers: {
-                      authorization: `Bearer ${authContext.token}`,
-                    },
-                  })
-                    .then((res) => res.json())
-                    .then((data) => {
-                      if (data.err) {
-                        return alert("Esate neprisijungęs(-usi)");
-                      }
-                      setItems(data);
-                    })
-                    .catch((err) => alert(err));
-                })
-                .catch((err) => alert(err));
-            }}
-          /> */}
         </S.SectionStyle>
       )}
       <Footer />

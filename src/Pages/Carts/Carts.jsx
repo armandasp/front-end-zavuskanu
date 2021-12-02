@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Nav, Footer, Table } from "../../Components";
-import { Link } from "react-router-dom";
 import * as S from "./Carts.styles";
 import { AuthContext } from "../../Contexts/Auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -37,11 +36,7 @@ const Carts = () => {
     <div>
       <Nav links={links} />
 
-      <h1>Krepšelis</h1>
-
-      <Link to="/">Produktai</Link>
-      <Link to="/sets">Rinkiniai</Link>
-      <Link to="/carts">Krepšelis</Link>
+      <h1 style={{textAlign: "center"}}>Prekių krepšelis</h1>
 
       {!items && <h1>Loading...</h1>}
 

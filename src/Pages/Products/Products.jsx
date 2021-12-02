@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Nav, Block, Footer } from "../../Components";
 import * as S from "./Products.styles";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/Auth";
 import img from "./prekes.jpg";
 
@@ -35,10 +34,6 @@ const Products = () => {
       <S.Img src={img} alt="cookies" />
 
       <h1>Produktai</h1>
-
-      <Link to="/">Produktai</Link>
-      <Link to="/sets">Rinkiniai</Link>
-      <Link to="/carts">Krepšelis</Link>
 
       {!items && <h1>Loading...</h1>}
 

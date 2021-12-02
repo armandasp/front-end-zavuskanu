@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Nav, Block, Footer } from "../../Components";
 import * as S from "./Sets.styles";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/Auth";
 import img from "./foto.JPG";
 
@@ -34,10 +33,6 @@ const Sets = () => {
 
       <S.Img src={img} alt="tree" />
       <h1>Rinkiniai</h1>
-
-      <Link to="/">Produktai</Link>
-      <Link to="/sets">Rinkiniai</Link>
-      <Link to="/carts">Krepšelis</Link>
 
       {!items && <h1>Loading...</h1>}
 

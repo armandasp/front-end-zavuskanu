@@ -9,10 +9,10 @@ const Table = ({ rows, name, color, handleClick }) => {
     <S.Table>
       <thead>
         <tr>
-          <S.th>Prekė</S.th>
-          <S.th>Kaina</S.th>
-          <S.th>Kiekis</S.th>
-          <S.th>Suma</S.th>
+          <S.thLeft>Prekė</S.thLeft>
+          <S.thCenter>Kaina</S.thCenter>
+          {/* <S.th>Kiekis</S.th>
+          <S.th>Suma</S.th> */}
           <S.th>Pašalinti prekę</S.th>
         </tr>
       </thead>
@@ -21,9 +21,9 @@ const Table = ({ rows, name, color, handleClick }) => {
           rows.map(
             (row) => (
               <tr>
-                <S.td>{row.title}</S.td>
-                <S.td id={row.price}>{row.price}</S.td>
-                <S.td>
+                <S.tdLeft>{row.title}</S.tdLeft>
+                <S.tdCenter id={row.id}>€ {row.price}</S.tdCenter>
+                {/* <S.td>
                   {
                     <input
                       type="number"
@@ -40,7 +40,7 @@ const Table = ({ rows, name, color, handleClick }) => {
                   }
                 </S.td>
                 <S.td id={row.id}>
-                  {document.getElementById(row.price) != null &&
+                  {document.getElementById(row.price) != null && Number(quantity.number) != null &&
                     //   console.log(
                     //   Number(quantity.number),
                     //   Number(document.getElementById(row.price).innerHTML)
@@ -49,7 +49,7 @@ const Table = ({ rows, name, color, handleClick }) => {
                       Number(quantity.number) *
                       Number(document.getElementById(row.price).innerHTML)
                     ).toFixed(2)}
-                </S.td>
+                </S.td> */}
                 <S.td>
                   {
                     <Button color={color} id={row.id} handleClick={handleClick}>
@@ -63,9 +63,9 @@ const Table = ({ rows, name, color, handleClick }) => {
             //   prices.push(Number(document.getElementById(row.id).innerHTML))
           )}
         <tr>
-          <S.td colSpan="5" style={{ textAlign: "right" }}>
+          <S.tdTotal colSpan="5" style={{ textAlign: "right" }}>
             Iš viso: {prices.reduce((a, b) => a + b, 0)}
-          </S.td>
+          </S.tdTotal>
         </tr>
       </tbody>
     </S.Table>

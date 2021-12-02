@@ -11,7 +11,8 @@ const Form = ({ handleSubmit, title, inputs, children, handleChange }) => {
             inputs.map((input) => (
               <S.Input
                 type={input.type}
-                key={input.type}
+                name={input.name}
+                key={input.id}
                 placeholder={input.placeholder}
                 onChange={input.handleChange}
                 required

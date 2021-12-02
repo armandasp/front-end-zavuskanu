@@ -15,17 +15,10 @@ const Register = () => {
   const [userInputs, setUserInputs] = useState();
   const inputs = [
     {
-      type: "text",
-      placeholder: "Jonas Jonaitis",
-      handleChange: (e) =>
-        setUserInputs({
-          ...userInputs,
-          fullname: e.target.value.trim().toLowerCase(),
-        }),
-    },
-    {
       type: "email",
       placeholder: "example@email.com",
+      name: "email",
+      id: 1,
       handleChange: (e) =>
         setUserInputs({
           ...userInputs,
@@ -35,8 +28,16 @@ const Register = () => {
     {
       type: "password",
       placeholder: "password...",
+      name: "password",
+      id: 2,
       handleChange: (e) =>
         setUserInputs({ ...userInputs, password: e.target.value }),
+    },
+    {
+      type: "password",
+      name: "password2",
+      placeholder: "repeat password...",
+      id: 3,
     },
   ];
   return (
@@ -45,7 +46,11 @@ const Register = () => {
       <Form
         handleSubmit={(e) => {
           e.preventDefault();
-          console.log(userInputs);
+          const password1 = e.target.elements.password.value;
+          const password2 = e.target.elements.password2.value;
+          if (password1 !== password2) {
+            return alert("Slaptažodžiai nesutampa. Bandykite dar kartą")
+          }
           fetch("http://localhost:3000/v1/auth/register", {
             method: "POST",
             headers: {

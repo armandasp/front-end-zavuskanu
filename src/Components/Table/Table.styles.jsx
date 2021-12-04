@@ -3,13 +3,13 @@ import styled from "styled-components";
 export const Table = styled.table`
   margin: 0 auto;
   border-collapse: collapse;
-  width: 80%;
+  width: 100%;
 `;
 
 export const th = styled.th`
   text-align: right;
   padding-bottom: 1rem;
-  padding: 1rem 1rem 1rem 0;
+  padding: 1rem 0;
 `;
 
 export const thLeft = styled.th`
@@ -26,7 +26,7 @@ export const thCenter = styled.th`
 export const td = styled.td`
   text-align: right;
   border-top: 1px solid #858181;
-  padding: 1rem 1rem 1rem 0;
+  padding: 1rem 0;
 `;
 
 export const tdCenter = styled.td`

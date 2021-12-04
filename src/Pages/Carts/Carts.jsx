@@ -16,6 +16,13 @@ const links = [
 const Carts = () => {
   const authContext = useContext(AuthContext);
   const [items, setItems] = useState();
+  const prices = [];
+  const totalPrice = () => {
+    for (let i = 0; i < items.length; i++) {
+      prices.push(Number(items[i].price));
+    }
+    return prices.reduce((a, b) => a + b).toFixed(2);
+  };
 
   useEffect(() => {
     fetch("http://localhost:3000/v1/carts", {
@@ -32,11 +39,12 @@ const Carts = () => {
       })
       .catch((err) => alert(err));
   }, []);
+
   return (
     <div>
       <Nav links={links} />
 
-      <h1 style={{textAlign: "center"}}>Prekių krepšelis</h1>
+      <h1 style={{ textAlign: "center" }}>Prekių krepšelis</h1>
 
       {!items && <h1>Loading...</h1>}
 
@@ -79,8 +87,14 @@ const Carts = () => {
                 .catch((err) => alert(err));
             }}
           />
+          <S.pStyle>Iš viso: € {totalPrice()}</S.pStyle>
         </S.SectionStyle>
       )}
+      {/* {!prices && <p>Loading</p>}
+
+      {prices && prices.length === 0 && <p>krauna</p>}
+
+      {prices && <p>Iš viso{prices.reduce((a, b) => a + b)}</p>} */}
       <Footer />
     </div>
   );

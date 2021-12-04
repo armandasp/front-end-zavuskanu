@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "../../Components";
 import * as S from "./Table.styles";
 
 const Table = ({ rows, name, color, handleClick }) => {
-  const [quantity, setQuantity] = useState();
-  const prices = [];
   return (
     <S.Table>
       <thead>
@@ -62,11 +60,6 @@ const Table = ({ rows, name, color, handleClick }) => {
             // document.getElementById(row.price) != null &&
             //   prices.push(Number(document.getElementById(row.id).innerHTML))
           )}
-        <tr>
-          <S.tdTotal colSpan="5" style={{ textAlign: "right" }}>
-            Iš viso: {prices.reduce((a, b) => a + b, 0)}
-          </S.tdTotal>
-        </tr>
       </tbody>
     </S.Table>
   );

@@ -8,9 +8,8 @@ const Table = ({ rows, name, color, handleClick }) => {
       <thead>
         <tr>
           <S.thLeft>Prekė</S.thLeft>
+          {/* <S.th>Aprašymas</S.th> */}
           <S.thCenter>Kaina</S.thCenter>
-          {/* <S.th>Kiekis</S.th>
-          <S.th>Suma</S.th> */}
           <S.th>Pašalinti prekę</S.th>
         </tr>
       </thead>
@@ -20,6 +19,7 @@ const Table = ({ rows, name, color, handleClick }) => {
             (row) => (
               <tr>
                 <S.tdLeft>{row.title}</S.tdLeft>
+                {/* <S.td>{row.description}</S.td> */}
                 <S.tdCenter id={row.id}>€ {row.price}</S.tdCenter>
                 {/* <S.td>
                   {
@@ -48,6 +48,7 @@ const Table = ({ rows, name, color, handleClick }) => {
                       Number(document.getElementById(row.price).innerHTML)
                     ).toFixed(2)}
                 </S.td> */}
+                
                 <S.td>
                   {
                     <Button color={color} id={row.id} handleClick={handleClick}>

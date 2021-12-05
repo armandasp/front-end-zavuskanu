@@ -1,19 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Nav, Block, Footer } from "../../Components";
+import React, { useState, useEffect } from "react";
+import { Block, Footer } from "../../Components";
 import * as S from "./Products.styles";
-import { AuthContext } from "../../Contexts/Auth";
 import img from "./prekes.jpg";
 
-const links = [
-  { title: "Prekės", to: "/" },
-  { title: "Rinkiniai", to: "/sets" },
-  { title: "Apie mus", to: "/" },
-  { title: "Kontaktai", to: "/" },
-  { title: "Krepšelis", to: "/carts" },
-];
+const token = localStorage.getItem("token");
 
 const Products = () => {
-  const authContext = useContext(AuthContext);
   const [items, setItems] = useState();
 
   useEffect(() => {
@@ -29,8 +21,6 @@ const Products = () => {
   }, []);
   return (
     <div>
-      <Nav links={links} />
-
       <S.Img src={img} alt="cookies" />
 
       <h1>Produktai</h1>
@@ -54,7 +44,7 @@ const Products = () => {
                 {
                   method: "POST",
                   headers: {
-                    authorization: `Bearer ${authContext.token}`,
+                    authorization: `Bearer ${token}`,
                     "Content-Type": "application/json",
                   },
                   body: JSON.stringify(items),
@@ -63,7 +53,7 @@ const Products = () => {
                 .then((res) => res.json())
                 .then((data) => {
                   if (!data.msg) {
-                    alert(data.err);
+                    return alert("Turite prisijungti");
                   }
                   alert("Prekė pridėta į krepšelį");
                 })

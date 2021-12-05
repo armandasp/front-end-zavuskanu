@@ -1,19 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Nav, Block, Footer } from "../../Components";
+import React, { useState, useEffect } from "react";
+import { Block, Footer } from "../../Components";
 import * as S from "./Sets.styles";
-import { AuthContext } from "../../Contexts/Auth";
 import img from "./foto.JPG";
 
-const links = [
-  { title: "Prekės", to: "/" },
-  { title: "Rinkiniai", to: "/sets" },
-  { title: "Apie mus", to: "/" },
-  { title: "Kontaktai", to: "/" },
-  { title: "Krepšelis", to: "/carts" },
-];
+const token = localStorage.getItem("token");
 
 const Sets = () => {
-  const authContext = useContext(AuthContext);
   const [items, setItems] = useState();
 
   useEffect(() => {
@@ -29,8 +21,6 @@ const Sets = () => {
   }, []);
   return (
     <div>
-      <Nav links={links} />
-
       <S.Img src={img} alt="tree" />
       <h1>Rinkiniai</h1>
 
@@ -45,13 +35,12 @@ const Sets = () => {
             name="Į krepšelį"
             handleClick={(e) => {
               e.preventDefault();
-              console.log(e.target);
               fetch(
                 `http://localhost:3000/v1/carts/addSet/${Number(e.target.id)}`,
                 {
                   method: "POST",
                   headers: {
-                    authorization: `Bearer ${authContext.token}`,
+                    authorization: `Bearer ${token}`,
                     "Content-Type": "application/json",
                   },
                   body: JSON.stringify(items),

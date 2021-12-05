@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Routes from "./Routes";
 import "normalize.css";
+import "./index.css";
+
 import AuthProvider from "./Contexts/Auth";
 
 ReactDOM.render(

@@ -8,7 +8,7 @@ const Block = ({ blocks, name, handleClick, children, color }) => {
       {blocks &&
         blocks.map((block) => (
           <S.Block key={block.id}>
-            <img src={block.image} alt="" />
+            <S.imgStyle src={block.image} alt="" />
             <h1>{block.title}</h1>
             <p>€ {block.price}</p>
             <Button color={color} id={block.id} handleClick={handleClick}>

@@ -1,33 +1,27 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Nav, Footer, Table } from "../../Components";
+import React, { useState, useEffect } from "react";
+import { Footer, Table } from "../../Components";
 import * as S from "./Carts.styles";
-import { AuthContext } from "../../Contexts/Auth";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../../fontawesome";
-
-const links = [
-  { title: "Prekės", to: "/" },
-  { title: "Rinkiniai", to: "/sets" },
-  { title: "Apie mus", to: "/" },
-  { title: "Kontaktai", to: "/" },
-  { title: "Krepšelis", to: "/carts" },
-];
+import { FaTrash } from "react-icons/fa";
+const token = localStorage.getItem("token");
 
 const Carts = () => {
-  const authContext = useContext(AuthContext);
   const [items, setItems] = useState();
   const prices = [];
   const totalPrice = () => {
-    for (let i = 0; i < items.length; i++) {
-      prices.push(Number(items[i].price));
+    if (!prices) {
+      prices.push(0.0);
+    } else {
+      for (let i = 0; i < items.length; i++) {
+        prices.push(Number(items[i].price));
+      }
+      return prices.reduce((a, b) => a + b).toFixed(2);
     }
-    return prices.reduce((a, b) => a + b).toFixed(2);
   };
 
   useEffect(() => {
     fetch("http://localhost:3000/v1/carts", {
       headers: {
-        authorization: `Bearer ${authContext.token}`,
+        authorization: `Bearer ${token}`,
       },
     })
       .then((res) => res.json())
@@ -42,59 +36,58 @@ const Carts = () => {
 
   return (
     <div>
-      <Nav links={links} />
-
-      <h1 style={{ textAlign: "center" }}>Prekių krepšelis</h1>
-
       {!items && <h1>Loading...</h1>}
 
-      {items && items.length === 0 && <h1>Krepšelis tuščias</h1>}
-
-      {items && (
-        <S.SectionStyle className="blocks">
-          <Table
-            rows={items}
-            name={<FontAwesomeIcon icon={["far", "trash-alt"]} />}
-            color="secondary"
-            handleClick={(e) => {
-              e.preventDefault();
-              fetch(
-                `http://localhost:3000/v1/carts/delete/${Number(e.target.id)}`,
-                {
-                  method: "DELETE",
-                  headers: {
-                    authorization: `Bearer ${authContext.token}`,
-                  },
-                }
-              )
-                .then((res) => res.json())
-                .then((data) => {
-                  alert("Prekė pašalinta");
-                  fetch("http://localhost:3000/v1/carts", {
-                    headers: {
-                      authorization: `Bearer ${authContext.token}`,
-                    },
-                  })
-                    .then((res) => res.json())
-                    .then((data) => {
-                      if (data.err) {
-                        return alert("Esate neprisijungęs(-usi)");
-                      }
-                      setItems(data);
-                    })
-                    .catch((err) => alert(err));
-                })
-                .catch((err) => alert(err));
-            }}
-          />
-          <S.pStyle>Iš viso: € {totalPrice()}</S.pStyle>
-        </S.SectionStyle>
+      {items && items.length === 0 && (
+        <h1 style={{ textAlign: "center" }}>Krepšelis tuščias</h1>
       )}
-      {/* {!prices && <p>Loading</p>}
 
-      {prices && prices.length === 0 && <p>krauna</p>}
-
-      {prices && <p>Iš viso{prices.reduce((a, b) => a + b)}</p>} */}
+      {items && items.length !== 0 && (
+        <>
+          <h1 style={{ textAlign: "center" }}>Prekių krepšelis</h1>
+          <S.SectionStyle className="blocks">
+            <Table
+              rows={items}
+              name={<FaTrash />}
+              colorBtn="secondary"
+              handleClick={(e) => {
+                e.preventDefault();
+                fetch(
+                  `http://localhost:3000/v1/carts/delete/${Number(
+                    e.currentTarget.id
+                  )}`,
+                  {
+                    method: "DELETE",
+                    headers: {
+                      authorization: `Bearer ${token}`,
+                    },
+                  }
+                )
+                  .then((res) => res.json())
+                  .then((data) => {
+                    console.log(e.target);
+                    alert("Prekė pašalinta");
+                    fetch("http://localhost:3000/v1/carts", {
+                      headers: {
+                        authorization: `Bearer ${token}`,
+                      },
+                    })
+                      .then((res) => res.json())
+                      .then((data) => {
+                        if (data.err) {
+                          return alert("Esate neprisijungęs(-usi)");
+                        }
+                        setItems(data);
+                      })
+                      .catch((err) => alert(err));
+                  })
+                  .catch((err) => alert(err));
+              }}
+            />
+            <S.pStyle>Iš viso: € {prices && totalPrice()}</S.pStyle>
+          </S.SectionStyle>
+        </>
+      )}
       <Footer />
     </div>
   );

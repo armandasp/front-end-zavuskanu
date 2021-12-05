@@ -1,15 +1,24 @@
 import React from "react";
 import * as S from "./Button.styles";
 
-const Button = ({ color, type, children, handleClick, id }) => {
+const Button = ({ colorBtn, type, children, handleClick, id }) => {
   let background;
+  let border;
+  let color;
+  let padding;
 
-  switch (color) {
+  switch (colorBtn) {
     case "primary":
       background = "#262677";
       break;
     case "secondary":
       background = "#0285b1";
+      break;
+    case "logout":
+      background = "none";
+      border = "none";
+      color = "#000";
+      padding = "0";
       break;
     default:
       background = "grey";
@@ -17,7 +26,7 @@ const Button = ({ color, type, children, handleClick, id }) => {
   return (
     <S.Button
       id={Number(id)}
-      style={{ background: background }}
+      style={{ background: background, border: border, color: color, padding: padding }}
       type={type || "button"}
       onClick={handleClick}
     >

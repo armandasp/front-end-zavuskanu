@@ -26,26 +26,30 @@ const Nav = ({ links }) => {
         <Link to="/">
           <S.Img src={img} alt="ZaVuskanu" />
         </Link>
-        <div>
+        <S.navLinks>
           {links &&
             links.map((link) => (
-              <Link
-                to={link.to}
-                key={link.title}
-                style={{ marginLeft: "1rem" }}
-              >
-                {link.title}
-              </Link>
+              <p>
+                <Link
+                  to={link.to}
+                  key={link.title}
+                  style={{
+                    marginLeft: "1rem",
+                    textDecoration: "none",
+                    color: "#000",
+                    hover: { color: "grey", textDecoration: "underline" },
+                  }}
+                >
+                  {link.title}
+                </Link>
+              </p>
             ))}
-        </div>
+        </S.navLinks>
         <div className="buttons">
           {token && (
             <S.rightDiv>
               <S.nameStyle>{decoded.name}</S.nameStyle>
-              <Button
-                colorBtn="logout"
-                handleClick={logout}
-              >
+              <Button colorBtn="logout" handleClick={logout}>
                 Atsijungti
               </Button>
             </S.rightDiv>

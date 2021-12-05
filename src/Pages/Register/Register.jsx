@@ -31,7 +31,7 @@ const Register = () => {
     },
     {
       type: "email",
-      placeholder: "example@email.com",
+      placeholder: "jonas@email.com",
       name: "email",
       id: 3,
       handleChange: (e) =>
@@ -42,7 +42,7 @@ const Register = () => {
     },
     {
       type: "password",
-      placeholder: "password...",
+      placeholder: "slaptažodis",
       name: "password",
       id: 4,
       handleChange: (e) =>
@@ -51,7 +51,7 @@ const Register = () => {
     {
       type: "password",
       name: "password2",
-      placeholder: "repeat password...",
+      placeholder: "pakartoti slaptažodį",
       id: 5,
     },
   ];

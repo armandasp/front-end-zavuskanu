@@ -35,6 +35,20 @@ export const logOffButton = styled.button`
   }
 `;
 
+export const link = styled.p`
+    color: #000;
+    text-decoration: none;
+    :hover {
+      color: grey;
+      transition: 0.2s;
+    }
+`;
+
+export const navLinks = styled.div`
+    display: flex;
+    justify-content: space-around;
+`;
+
 // export const LinkStyle = styled(Link)`
 //   text-decoration: none;
 //   margin-left: 1rem;

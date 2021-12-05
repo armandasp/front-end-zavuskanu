@@ -6,7 +6,7 @@ const Form = ({ handleSubmit, title, inputs, children, handleChange }) => {
     <S.Div>
       <form onSubmit={handleSubmit}>
         <h1>{title}</h1>
-        <div>
+        <div style={{ marginBottom: "1rem" }}>
           {inputs &&
             inputs.map((input) => (
               <S.Input

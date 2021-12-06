@@ -22,11 +22,12 @@ const Sets = () => {
   return (
     <div>
       <S.Img src={img} alt="tree" />
-      <h1>Rinkiniai</h1>
+      
+      <S.Title>Rinkiniai</S.Title>
 
       {!items && <h1>Loading...</h1>}
 
-      {items && items.length === 0 && <h1>Nėra produktų</h1>}
+      {items && items.length === 0 && <S.Title>Nėra prekių</S.Title>}
 
       {items && (
         <S.SectionStyle className="blocks">
@@ -49,9 +50,9 @@ const Sets = () => {
                 .then((res) => res.json())
                 .then((data) => {
                   if (!data.msg) {
-                    alert(data.err);
+                    return alert("Turite prisijungti");
                   }
-                  alert("Prekė pridėta į krepšelį");
+                  return alert("Prekė pridėta į krepšelį");
                 })
                 .catch((err) => alert(err));
             }}

@@ -14,13 +14,13 @@ export const th = styled.th`
 
 export const thLeft = styled.th`
   text-align: left;
-  padding-bottom: 1rem;
+  padding: 1rem 0;
   width: 50%;
 `;
 
 export const thCenter = styled.th`
   text-align: center;
-  padding-bottom: 1rem;
+  padding: 1rem 0;
 `;
 
 export const td = styled.td`

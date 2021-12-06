@@ -23,11 +23,11 @@ const Products = () => {
     <div>
       <S.Img src={img} alt="cookies" />
 
-      <h1>Produktai</h1>
+      <S.Title>Visos prekės</S.Title>
 
       {!items && <h1>Loading...</h1>}
 
-      {items && items.length === 0 && <h1>Nėra produktų</h1>}
+      {items && items.length === 0 && <h1>Nėra prekių</h1>}
 
       {items && (
         <S.SectionStyle className="blocks">

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, Footer } from "../../Components";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import * as S from "./Register.styles";
 
 const Register = () => {
   const [userInputs, setUserInputs] = useState();
@@ -85,15 +86,15 @@ const Register = () => {
               navigate("/login")
             });
         }}
-        title="Registruotis"
+        title="Sukurkite paskyrą"
         inputs={inputs}
       >
         <Button colorBtn="primary" type="submit">
           Registruotis
         </Button>
-        <p>
+        <S.Par>
           Jau turite paskyrą? Prisijunkite <Link to="/login">čia</Link>
-        </p>
+        </S.Par>
       </Form>
       <Footer />
     </>

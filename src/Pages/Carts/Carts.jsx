@@ -78,7 +78,9 @@ const Carts = () => {
       {items && items.length !== 0 && (
         <S.DivStyle>
           <S.leftSection className="cart">
-            <h1 style={{ textAlign: "center" }}>Prekių krepšelis</h1>
+            <h1 style={{ textAlign: "center", marginTop: "0" }}>
+              Prekių krepšelis
+            </h1>
             <S.SectionStyle className="blocks">
               <Table
                 rows={items}

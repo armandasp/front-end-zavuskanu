@@ -8,6 +8,19 @@ export const Div = styled.div`
   width: 30%;
   margin: 0 auto;
   margin-bottom: 2rem;
+
+  @media screen and (max-width: 640px) {
+    padding: 2rem;
+    width: 60%;
+  }
+`;
+
+export const Title = styled.h1`
+  font-size: 1.3rem;
+
+  @media screen and (max-width: 640px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Input = styled.input`

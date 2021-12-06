@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, Footer } from "../../Components";
 import { Link } from "react-router-dom";
+import * as S from "./Login.styles";
 
 const Login = () => {
   const [userInputs, setUserInputs] = useState();
@@ -50,15 +51,15 @@ const Login = () => {
             .catch((err) => alert(err.message))
             .finally(() => e.target.reset());
         }}
-        title="Prisijungti"
+        title="Prisijunkite prie paskyros"
         inputs={inputs}
       >
         <Button colorBtn="primary" type="submit">
           Prisijungti
         </Button>
-        <p>
+        <S.Par>
           Neturite paskyros? <Link to="/register">Registruotis</Link>
-        </p>
+        </S.Par>
       </Form>
       <Footer />
     </>

@@ -13,8 +13,6 @@ const LazyRegister = React.lazy(() => import("./Pages/Register/Register"));
 const links = [
   { title: "Prekės", to: "/" },
   { title: "Rinkiniai", to: "/sets" },
-  { title: "Apie mus", to: "/" },
-  { title: "Kontaktai", to: "/" },
   { title: "Krepšelis", to: "/carts" },
 ];
 

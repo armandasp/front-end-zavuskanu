@@ -29,20 +29,20 @@ const Nav = ({ links }) => {
         <S.navLinks>
           {links &&
             links.map((link) => (
-              <p>
-                <Link
-                  to={link.to}
-                  key={link.title}
-                  style={{
-                    marginLeft: "1rem",
-                    textDecoration: "none",
-                    color: "#000",
-                    hover: { color: "grey", textDecoration: "underline" },
-                  }}
-                >
-                  {link.title}
-                </Link>
-              </p>
+              <Link
+                to={link.to}
+                key={link.title}
+                style={{
+                  marginLeft: "0.5rem",
+                  marginRight: "0.5rem",
+                  padding: "0",
+                  textDecoration: "none",
+                  color: "#000",
+                  hover: { color: "grey", textDecoration: "underline" },
+                }}
+              >
+                {link.title}
+              </Link>
             ))}
         </S.navLinks>
         <div className="buttons">
@@ -61,6 +61,7 @@ const Nav = ({ links }) => {
           )}
         </div>
       </S.NavStyle>
+      <div className="box"></div>
     </>
   );
 };

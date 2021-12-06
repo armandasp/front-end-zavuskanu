@@ -66,7 +66,7 @@ const Register = () => {
           if (password1 !== password2) {
             return alert("Slaptažodžiai nesutampa. Bandykite dar kartą");
           }
-          fetch("http://localhost:3000/v1/auth/register", {
+          fetch(`${process.env.REACT_APP_URL}/v1/auth/register`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

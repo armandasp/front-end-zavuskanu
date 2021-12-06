@@ -9,7 +9,7 @@ const Sets = () => {
   const [items, setItems] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:3000/v1/sets")
+    fetch(`${process.env.REACT_APP_URL}/v1/sets`)
       .then((res) => res.json())
       .then((data) => {
         if (data.err) {
@@ -37,7 +37,7 @@ const Sets = () => {
             handleClick={(e) => {
               e.preventDefault();
               fetch(
-                `http://localhost:3000/v1/carts/addSet/${Number(e.target.id)}`,
+                `${process.env.REACT_APP_URL}/v1/carts/addSet/${Number(e.target.id)}`,
                 {
                   method: "POST",
                   headers: {

@@ -26,12 +26,11 @@ const Login = () => {
 
   return (
     <>
-      {/* <Nav links={links}></Nav> */}
       <Form
         handleSubmit={(e) => {
           e.preventDefault();
 
-          fetch("http://localhost:3000/v1/auth/login", {
+          fetch(`${process.env.REACT_APP_URL}/v1/auth/login`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

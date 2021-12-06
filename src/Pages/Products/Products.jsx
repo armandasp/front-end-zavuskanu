@@ -9,7 +9,7 @@ const Products = () => {
   const [items, setItems] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:3000/v1/products")
+    fetch(`${process.env.REACT_APP_URL}/v1/products`)
       .then((res) => res.json())
       .then((data) => {
         if (data.err) {
@@ -38,7 +38,7 @@ const Products = () => {
               e.preventDefault();
               console.log(e.target);
               fetch(
-                `http://localhost:3000/v1/carts/addProduct/${Number(
+                `${process.env.REACT_APP_URL}/v1/carts/addProduct/${Number(
                   e.target.id
                 )}`,
                 {

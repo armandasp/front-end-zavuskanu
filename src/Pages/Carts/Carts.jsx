@@ -12,9 +12,7 @@ if (token) {
 }
 
 const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(
-  "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"
-);
+sgMail.setApiKey(process.env.REACT_APP_SGMAIL_API);
 
 const Carts = () => {
   const [userInputs, setUserInputs] = useState();
@@ -50,9 +48,8 @@ const Carts = () => {
       return prices.reduce((a, b) => a + b).toFixed(2);
     }
   };
-
   useEffect(() => {
-    fetch("http://localhost:3000/v1/carts", {
+    fetch(`${process.env.REACT_APP_URL}/v1/carts`, {
       headers: {
         authorization: `Bearer ${token}`,
       },
@@ -89,7 +86,7 @@ const Carts = () => {
                 handleClick={(e) => {
                   e.preventDefault();
                   fetch(
-                    `http://localhost:3000/v1/carts/delete/${Number(
+                    `${process.env.REACT_APP_URL}/v1/carts/delete/${Number(
                       e.currentTarget.id
                     )}`,
                     {
@@ -103,7 +100,7 @@ const Carts = () => {
                     .then((data) => {
                       console.log(e.target);
                       alert("Prekė pašalinta");
-                      fetch("http://localhost:3000/v1/carts", {
+                      fetch(`${process.env.REACT_APP_URL}/v1/carts`, {
                         headers: {
                           authorization: `Bearer ${token}`,
                         },
@@ -136,15 +133,8 @@ const Carts = () => {
                   email: userInputs.email,
                   address: userInputs.address,
                 };
-                console.log(allData);
 
-                // console.log(
-                //   userInputs,
-                //   decoded.name,
-                //   items[0].title,
-                //   totalPrice()
-                // );
-                fetch("http://localhost:3000/v1/send/sendEmail", {
+                fetch(`${process.env.REACT_APP_URL}/v1/send/sendEmail`, {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",

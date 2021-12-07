@@ -30,13 +30,16 @@ const Login = () => {
         handleSubmit={(e) => {
           e.preventDefault();
 
-          fetch('https://zavuskanu-8a8gc.ondigitalocean.app/back/v1/auth/login', {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userInputs),
-          })
+          fetch(
+            "https://zavuskanu-8a8gc.ondigitalocean.app/back/v1/auth/login",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(userInputs),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (!data.token) {
@@ -47,7 +50,7 @@ const Login = () => {
               window.location.reload();
               window.location.replace("/");
             })
-            .catch((err) => alert(err.message))
+            .catch((err) => alert("Slaptažodis neteisingas"))
             .finally(() => e.target.reset());
         }}
         title="Prisijunkite prie paskyros"

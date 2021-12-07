@@ -40,7 +40,7 @@ const Login = () => {
             .then((res) => res.json())
             .then((data) => {
               if (!data.token) {
-                return alert(data.err);
+                return alert("Slaptažodis neteisingas");
               }
               alert("Sėkmingai prisijungėte");
               localStorage.setItem("token", data.token);

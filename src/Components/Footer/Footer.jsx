@@ -9,7 +9,7 @@ const Footer = () => {
             <S.Contacts className="contacts">
                 <S.h2>Susisiekite</S.h2>
                 <div className="icons">
-                    <S.Icon href="https://www.facebook.com/">
+                    <S.Icon href="https://www.facebook.com/zavuskanu-105714631954149">
                     <FontAwesomeIcon icon={["fab", "facebook"]} />
                     </S.Icon>
                     <S.Icon href="https://www.instagram.com/zavuskanu/">

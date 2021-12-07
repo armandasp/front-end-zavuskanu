@@ -50,7 +50,9 @@ const Login = () => {
               window.location.reload();
               window.location.replace("/");
             })
-            .catch((err) => alert("Slaptažodis neteisingas"))
+            .catch((err) => {
+              return alert("Slaptažodis neteisingas");
+            })
             .finally(() => e.target.reset());
         }}
         title="Prisijunkite prie paskyros"

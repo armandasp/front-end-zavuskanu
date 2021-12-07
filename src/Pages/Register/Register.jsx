@@ -66,13 +66,16 @@ const Register = () => {
           if (password1 !== password2) {
             return alert("Slaptažodžiai nesutampa. Bandykite dar kartą");
           }
-          fetch('https://zavuskanu-8a8gc.ondigitalocean.app/back/v1/auth/register', {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userInputs),
-          })
+          fetch(
+            "https://zavuskanu-8a8gc.ondigitalocean.app/back/v1/auth/register",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(userInputs),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.err) {
@@ -80,10 +83,12 @@ const Register = () => {
               }
               alert("Registracija sėkminga");
             })
-            .catch((err) => alert(err))
+            .catch((err) => {
+              return alert("Duomenys neteisingi");
+            })
             .finally(() => {
               e.target.reset();
-              navigate("/login")
+              navigate("/login");
             });
         }}
         title="Sukurkite paskyrą"

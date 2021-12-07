@@ -13,7 +13,7 @@ const Products = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.err) {
-          return alert("this error");
+          return alert("nepavyko rasti produktų");
         }
         setItems(data);
       })
@@ -36,7 +36,6 @@ const Products = () => {
             name="Į krepšelį"
             handleClick={(e) => {
               e.preventDefault();
-              console.log(e.target);
               fetch(
                 `${process.env.REACT_APP_URL}/v1/carts/addProduct/${Number(
                   e.target.id

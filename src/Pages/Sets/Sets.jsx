@@ -13,7 +13,7 @@ const Sets = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.err) {
-          return alert("this error");
+          return alert("Nepavyko rasti rinkinių");
         }
         setItems(data);
       })

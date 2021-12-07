@@ -76,7 +76,7 @@ const Register = () => {
             .then((res) => res.json())
             .then((data) => {
               if (data.err) {
-                alert(data.err);
+                alert("Registracija nepavyko. Bandykite dar kartą");
               }
               alert("Registracija sėkminga");
             })

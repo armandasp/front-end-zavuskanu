@@ -66,7 +66,7 @@ const Register = () => {
           if (password1 !== password2) {
             return alert("Slaptažodžiai nesutampa. Bandykite dar kartą");
           }
-          fetch(`${process.env.REACT_APP_URL}/v1/auth/register`, {
+          fetch('https://zavuskanu-8a8gc.ondigitalocean.app/back/v1/auth/register', {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

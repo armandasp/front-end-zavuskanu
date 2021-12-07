@@ -49,7 +49,7 @@ const Carts = () => {
     }
   };
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_URL}/v1/carts`, {
+    fetch('https://zavuskanu-8a8gc.ondigitalocean.app/back/v1/carts', {
       headers: {
         authorization: `Bearer ${token}`,
       },
@@ -86,7 +86,7 @@ const Carts = () => {
                 handleClick={(e) => {
                   e.preventDefault();
                   fetch(
-                    `${process.env.REACT_APP_URL}/v1/carts/delete/${Number(
+                    `https://zavuskanu-8a8gc.ondigitalocean.app/back/v1/carts/delete/${Number(
                       e.currentTarget.id
                     )}`,
                     {
@@ -99,7 +99,7 @@ const Carts = () => {
                     .then((res) => res.json())
                     .then((data) => {
                       alert("Prekė pašalinta");
-                      fetch(`${process.env.REACT_APP_URL}/v1/carts`, {
+                      fetch('https://zavuskanu-8a8gc.ondigitalocean.app/back/v1/carts', {
                         headers: {
                           authorization: `Bearer ${token}`,
                         },
@@ -133,7 +133,7 @@ const Carts = () => {
                   address: userInputs.address,
                 };
 
-                fetch(`${process.env.REACT_APP_URL}/v1/send/sendEmail`, {
+                fetch('https://zavuskanu-8a8gc.ondigitalocean.app/back/v1/send/sendEmail', {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",
@@ -147,7 +147,7 @@ const Carts = () => {
                     }
                     alert(data.msg);
                     fetch(
-                      `${process.env.REACT_APP_URL}/v1/carts/deletecart`,
+                      'https://zavuskanu-8a8gc.ondigitalocean.app/back/v1/carts/deletecart',
                       {
                         method: "DELETE",
                         headers: {

@@ -30,7 +30,7 @@ const Login = () => {
         handleSubmit={(e) => {
           e.preventDefault();
 
-          fetch(`${process.env.REACT_APP_URL}/v1/auth/login`, {
+          fetch('https://zavuskanu-8a8gc.ondigitalocean.app/back/v1/auth/login', {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

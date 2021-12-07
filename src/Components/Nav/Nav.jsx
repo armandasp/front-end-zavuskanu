@@ -10,7 +10,7 @@ const token = localStorage.getItem("token");
 if (token) {
   var decoded = jwt_decode(token);
 } else {
-  console.log(process.env.REACT_APP_URL);
+  console.log("nėra tokeno");
 }
 
 const Nav = ({ links }) => {

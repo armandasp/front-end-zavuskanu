@@ -9,7 +9,7 @@ const Sets = () => {
   const [items, setItems] = useState();
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_URL}/v1/sets`)
+    fetch('https://zavuskanu-8a8gc.ondigitalocean.app/back/v1/sets')
       .then((res) => res.json())
       .then((data) => {
         if (data.err) {
@@ -37,7 +37,7 @@ const Sets = () => {
             handleClick={(e) => {
               e.preventDefault();
               fetch(
-                `${process.env.REACT_APP_URL}/v1/carts/addSet/${Number(e.target.id)}`,
+                `https://zavuskanu-8a8gc.ondigitalocean.app/back/v1/carts/addSet/${Number(e.target.id)}`,
                 {
                   method: "POST",
                   headers: {

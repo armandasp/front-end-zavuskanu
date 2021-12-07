@@ -98,7 +98,6 @@ const Carts = () => {
                   )
                     .then((res) => res.json())
                     .then((data) => {
-                      console.log(e.target);
                       alert("Prekė pašalinta");
                       fetch(`${process.env.REACT_APP_URL}/v1/carts`, {
                         headers: {
@@ -144,9 +143,26 @@ const Carts = () => {
                   .then((res) => res.json())
                   .then((data) => {
                     if (data.err) {
-                      alert(data.err);
+                      return alert(data.err);
                     }
                     alert(data.msg);
+                    fetch(
+                      `${process.env.REACT_APP_URL}/v1/carts/deletecart`,
+                      {
+                        method: "DELETE",
+                        headers: {
+                          authorization: `Bearer ${token}`,
+                        },
+                      }
+                    )
+                      .then((res) => res.json())
+                      .then((data) => {
+                        if (data.err) {
+                          return alert(data.err);
+                        }
+                        window.location.reload();
+                      })
+                      .catch((err) => alert(err));
                   })
                   .catch((err) => alert(err));
               }}

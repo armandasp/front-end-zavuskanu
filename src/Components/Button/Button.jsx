@@ -9,7 +9,7 @@ const Button = ({ colorBtn, type, children, handleClick, id }) => {
 
   switch (colorBtn) {
     case "primary":
-      background = "#262677";
+      background = "#4d4d4d";
       break;
     case "secondary":
       background = "#0285b1";

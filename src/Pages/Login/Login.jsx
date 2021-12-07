@@ -43,7 +43,7 @@ const Login = () => {
             .then((res) => res.json())
             .then((data) => {
               if (!data.token) {
-                return alert("Slaptažodis neteisingas");
+                return alert("Duomenys neteisingi");
               }
               alert("Sėkmingai prisijungėte");
               localStorage.setItem("token", data.token);
@@ -51,7 +51,7 @@ const Login = () => {
               window.location.replace("/");
             })
             .catch((err) => {
-              return alert("Slaptažodis neteisingas");
+              return alert("Duomenys neteisingi");
             })
             .finally(() => e.target.reset());
         }}

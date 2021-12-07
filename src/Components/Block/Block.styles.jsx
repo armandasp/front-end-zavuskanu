@@ -20,6 +20,7 @@ export const Block = styled.div`
 
     &:nth-child(3n) {
       margin: 0 auto;
+      margin-bottom: 1rem;
     }
   }
 

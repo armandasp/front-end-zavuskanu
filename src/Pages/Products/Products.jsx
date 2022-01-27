@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Block, Footer } from "../../Components";
+import { Block, Footer, Notification } from "../../Components";
 import * as S from "./Products.styles";
 import img from "./prekes.jpg";
 
@@ -61,6 +61,7 @@ const Products = () => {
           />
         </S.SectionStyle>
       )}
+      <Notification color="success">veikia</Notification>
       <Footer />
     </div>
   );

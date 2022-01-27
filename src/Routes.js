@@ -19,7 +19,7 @@ const links = [
 const PageRouter = () => {
   return (
     <Router>
-      <Nav links={links}/>
+      <Nav links={links} />
 
       <Suspense fallback={() => <h1>Loading...</h1>}>
         <Routes>

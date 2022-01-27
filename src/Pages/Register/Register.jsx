@@ -67,7 +67,7 @@ const Register = () => {
             return alert("Slaptažodžiai nesutampa. Bandykite dar kartą");
           }
           fetch(
-            "https://zavuskanu-8a8gc.ondigitalocean.app/back/v1/auth/register",
+            `${process.env.REACT_APP_URL}/v1/auth/register`,
             {
               method: "POST",
               headers: {

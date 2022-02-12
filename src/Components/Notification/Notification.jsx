@@ -3,9 +3,10 @@ import * as S from "./Notification.styles";
 
 const Notification = ({ color, children }) => {
   let background;
+
   switch (color) {
     case "success":
-      background = "green";
+      background = "lightgreen";
       break;
     case "error":
       background = "red";
@@ -14,8 +15,14 @@ const Notification = ({ color, children }) => {
       background = "grey";
   }
   return (
-    <S.note style={{ background }}>
-      <S.deleteButton>x</S.deleteButton>
+    <S.note id="note" style={{ background }}>
+      <S.deleteButton
+        onClick={() => {
+          document.getElementById("note").style.display = "none";
+        }}
+      >
+        x
+      </S.deleteButton>
       {children}
     </S.note>
   );

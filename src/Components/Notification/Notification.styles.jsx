@@ -10,6 +10,7 @@ export const note = styled.div`
   position: fixed;
   top: 4rem;
   right: 2rem;
+  transition: 0.2s;
 `;
 
 export const deleteButton = styled.button`

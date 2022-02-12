@@ -22,13 +22,9 @@ const Products = () => {
   return (
     <div>
       <S.Img src={img} alt="cookies" />
-
       <S.Title>Visos prekės</S.Title>
-
       {!items && <h1>Loading...</h1>}
-
       {items && items.length === 0 && <h1>Nėra prekių</h1>}
-
       {items && (
         <S.SectionStyle className="blocks">
           <Block
@@ -54,14 +50,15 @@ const Products = () => {
                   if (!data.msg) {
                     return alert("Turite prisijungti");
                   }
-                  alert("Prekė pridėta į krepšelį");
+                  return (
+                    <Notification color="success">Prekė pridėta</Notification>
+                  );
                 })
                 .catch((err) => alert(err));
             }}
           />
         </S.SectionStyle>
       )}
-      <Notification color="success">veikia</Notification>
       <Footer />
     </div>
   );

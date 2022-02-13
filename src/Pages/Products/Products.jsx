@@ -8,20 +8,21 @@ const token = localStorage.getItem("token");
 const Products = () => {
   const [items, setItems] = useState();
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_URL}/v1/products`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.err) {
-          return alert("nepavyko rasti produktų");
-        }
-        setItems(data);
-      })
-      .catch((err) => alert(err));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${process.env.REACT_APP_URL}/v1/products`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data.err) {
+  //         return alert("nepavyko rasti produktų");
+  //       }
+  //       setItems(data);
+  //     })
+  //     .catch((err) => alert(err));
+  // }, []);
   return (
     <div>
       <S.Img src={img} alt="cookies" />
+      <Notification color="success">Prekė pridėta</Notification>
       <S.Title>Visos prekės</S.Title>
       {!items && <h1>Loading...</h1>}
       {items && items.length === 0 && <h1>Nėra prekių</h1>}

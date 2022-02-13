@@ -18,7 +18,8 @@ const Notification = ({ color, children }) => {
     <S.note id="note" style={{ background }}>
       <S.deleteButton
         onClick={() => {
-          document.getElementById("note").style.display = "none";
+          document.getElementById("note").style.visibility = "hidden";
+          document.getElementById("note").style.opacity = "0";
         }}
       >
         x

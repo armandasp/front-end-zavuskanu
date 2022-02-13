@@ -8,9 +8,10 @@ export const note = styled.div`
   min-width: 20%;
   display: inline-block;
   position: fixed;
+  opacity: 1;
   top: 4rem;
   right: 2rem;
-  transition: 0.2s;
+  transition: 0.5s;
 `;
 
 export const deleteButton = styled.button`
@@ -18,10 +19,10 @@ export const deleteButton = styled.button`
   border: none;
   cursor: pointer;
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 1.3rem;
   position: absolute;
   right: 0.5rem;
-  top: 0.5rem;
+  top: 0.75rem;
   margin: 0;
   padding: 0;
   width: 1rem;

@@ -8,17 +8,17 @@ const token = localStorage.getItem("token");
 const Products = () => {
   const [items, setItems] = useState();
 
-  // useEffect(() => {
-  //   fetch(`${process.env.REACT_APP_URL}/v1/products`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data.err) {
-  //         return alert("nepavyko rasti produktų");
-  //       }
-  //       setItems(data);
-  //     })
-  //     .catch((err) => alert(err));
-  // }, []);
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_URL}/v1/products`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.err) {
+          return alert("nepavyko rasti produktų");
+        }
+        setItems(data);
+      })
+      .catch((err) => alert(err));
+  }, []);
   return (
     <div>
       <S.Img src={img} alt="cookies" />
@@ -51,9 +51,7 @@ const Products = () => {
                   if (!data.msg) {
                     return alert("Turite prisijungti");
                   }
-                  return (
-                    <Notification color="success">Prekė pridėta</Notification>
-                  );
+                  return alert("Prekė pridėta");
                 })
                 .catch((err) => alert(err));
             }}

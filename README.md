@@ -1,13 +1,19 @@
 # ŽaVuskanu
 
-This new is e-commerce project, where you can buy tasty and beautiful gifts.
+This is e-commerce project, where you can buy tasty and beautiful gifts.
+
+# Description
+
 Customer can choose different products, add them to cart and send the order via email.
 
 # Tecnhologies used:
-Node.js, mySQL, React.js
+
+Client side is built with React.js, utilizing Styled Components.
+Server side is built with Node.js, Express and MySQL.
+Sendgrid was used for customer communication by email.
 
 # You can visit it here:
-https://zavuskanu-8a8gc.ondigitalocean.app/
+The project is under development. Will be released soon.
 
 # contact
 If you have any problems, questions, concerns or suggestions, please contact us: zavuskanutest@gmail.com

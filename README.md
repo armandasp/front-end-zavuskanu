@@ -6,6 +6,8 @@ This is e-commerce project, where you can buy tasty and beautiful gifts.
 
 Customer can choose different products, add them to cart and send the order via email.
 ![image](https://user-images.githubusercontent.com/34486157/159043002-46cdf155-d889-42f2-8c2e-1021a654d3ff.png)
+![image](https://user-images.githubusercontent.com/34486157/159043448-842d2e3d-b3e2-40e4-9697-408350b4c643.png)
+
 
 
 # Tecnhologies used:

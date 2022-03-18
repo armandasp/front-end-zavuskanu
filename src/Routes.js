@@ -9,11 +9,13 @@ const LazyProducts = React.lazy(() => import("./Pages/Products/Products"));
 const LazySets = React.lazy(() => import("./Pages/Sets/Sets"));
 const LazyLogin = React.lazy(() => import("./Pages/Login/Login"));
 const LazyRegister = React.lazy(() => import("./Pages/Register/Register"));
+const LazyContacts = React.lazy(() => import("./Pages/Contacts/Contacts"));
 
 const links = [
   { title: "Prekės", to: "/" },
   { title: "Rinkiniai", to: "/sets" },
   { title: "Krepšelis", to: "/carts" },
+  { title: "Kontaktai", to: "/contacts" },
 ];
 
 const PageRouter = () => {
@@ -25,6 +27,7 @@ const PageRouter = () => {
         <Routes>
           <Route exact path="/" element={<LazyProducts />} />
           <Route exact path="/sets" element={<LazySets />} />
+          <Route exact path="/contacts" element={<LazyContacts />} />
           <Route
             exact
             path="/carts"

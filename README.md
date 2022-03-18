@@ -10,7 +10,7 @@ Customer can choose different products, add them to cart and send the order via 
 <img src="https://user-images.githubusercontent.com/34486157/159043448-842d2e3d-b3e2-40e4-9697-408350b4c643.png" width="700"/>
 
 
-# Tecnhologies used:
+# Technologies used:
 
 Client side is built with React.js, utilizing Styled-Components.
 

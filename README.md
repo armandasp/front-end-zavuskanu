@@ -11,7 +11,7 @@ Customer can choose different products, add them to cart and send the order via 
 
 # Tecnhologies used:
 
-Client side is built with React.js, utilizing Styled Components.
+Client side is built with React.js, utilizing Styled-Components.
 Server side is built with Node.js, Express and MySQL.
 Sendgrid was used for customer communication by email.
 

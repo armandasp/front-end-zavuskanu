@@ -18,13 +18,13 @@ const Carts = () => {
   const [userInputs, setUserInputs] = useState();
   const inputs = [
     {
-      type: "email",
-      name: "email",
-      placeholder: "example@email.com",
+      type: "text",
+      name: "phone",
+      placeholder: "Telefono numeris",
       handleChange: (e) =>
         setUserInputs({
           ...userInputs,
-          email: e.target.value.trim().toLowerCase(),
+          phone: e.target.value.trim().toLowerCase(),
         }),
     },
     {
@@ -98,7 +98,6 @@ const Carts = () => {
                   )
                     .then((res) => res.json())
                     .then((data) => {
-                      alert("Prekė pašalinta");
                       fetch(`${process.env.REACT_APP_URL}/v1/carts`, {
                         headers: {
                           authorization: `Bearer ${token}`,
@@ -129,7 +128,7 @@ const Carts = () => {
                   products: items.map((item) => item.title),
                   totalPrice: prices.reduce((a, b) => a + b).toFixed(2),
                   name: decoded.name,
-                  email: userInputs.email,
+                  phone: userInputs.phone,
                   address: userInputs.address,
                 };
 
@@ -168,6 +167,7 @@ const Carts = () => {
               }}
             >
               <Button type="submit">Siųsti užklausą</Button>
+              <p>Paspaudus "Siųsti užklausą", mes gausime jūsų užsakymą ir su jumis susisieksime</p>
             </Form>
           </S.rightSection>
         </S.DivStyle>

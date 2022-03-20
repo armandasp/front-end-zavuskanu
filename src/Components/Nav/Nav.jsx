@@ -29,20 +29,20 @@ const Nav = ({ links }) => {
         <S.navLinks>
           {links &&
             links.map((link) => (
-              <Link
-                to={link.to}
-                key={link.title}
-                style={{
-                  marginLeft: "0.5rem",
-                  marginRight: "0.5rem",
-                  padding: "0",
-                  textDecoration: "none",
-                  color: "#000",
-                  hover: { color: "grey", textDecoration: "underline" },
-                }}
-              >
-                {link.title}
-              </Link>
+              <S.linkStyle href={link.to}>{link.title}</S.linkStyle>
+              // <Link
+              //   to={link.to}
+              //   key={link.title}
+              //   style={{
+              //     marginLeft: "0.5rem",
+              //     marginRight: "0.5rem",
+              //     padding: "0",
+              //     textDecoration: "none",
+              //     color: "#000",
+              //   }}
+              // >
+              //   {link.title}
+              // </Link>
             ))}
         </S.navLinks>
         <div className="buttons">

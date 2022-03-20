@@ -48,7 +48,6 @@ export const link = styled.p`
   }
 `;
 
-
 export const navLinks = styled.div`
   display: flex;
   justify-content: space-around;
@@ -58,6 +57,36 @@ export const navLinks = styled.div`
     left: 50%;
     top: 6rem;
     transform: translateX(-50%);
-    
+  }
+`;
+
+export const linkStyle = styled.a`
+  text-decoration: none;
+  margin: 0 1rem;
+  color: #000;
+  font-size: 1.2rem;
+  transition-duration: 0.1s;
+  position: relative; 
+  :after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -0.3rem;
+    left: 0;
+    background-color: #000;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  :hover {
+    color: #000;
+  }
+  :hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  @media screen and (max-width: 640px) {
   }
 `;

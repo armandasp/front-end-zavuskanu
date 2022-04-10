@@ -8,9 +8,9 @@ export const Button = styled.button`
   color: #fff;
   :hover {
     background: #fff;
-    color: #4d4d4d;
+    color: #000;
     /* transition: 0.2s; */
-    border: 0.1rem solid #4d4d4d;
+    border: 0.1rem solid #000;
     padding: 0.4rem 0.9rem;
   }
 

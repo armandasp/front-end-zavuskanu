@@ -2,11 +2,12 @@ import React from "react";
 import * as S from "./Notification.styles";
 
 const Notification = ({ color, children }) => {
-  let background;
+  let background, display;
 
   switch (color) {
     case "success":
       background = "lightgreen";
+      display = "inline-block";
       break;
     case "error":
       background = "red";
@@ -15,10 +16,9 @@ const Notification = ({ color, children }) => {
       background = "grey";
   }
   return (
-    <S.note id="note" style={{ background }}>
+    <S.note id="note" style={{ background, display }}>
       <S.deleteButton
         onClick={() => {
-          document.getElementById("note").style.visibility = "hidden";
           document.getElementById("note").style.opacity = "0";
         }}
       >

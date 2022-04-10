@@ -45,7 +45,6 @@ const Login = () => {
               if (!data.token) {
                 return alert("Duomenys neteisingi");
               }
-              alert("Sėkmingai prisijungėte");
               localStorage.setItem("token", data.token);
               window.location.reload();
               window.location.replace("/");

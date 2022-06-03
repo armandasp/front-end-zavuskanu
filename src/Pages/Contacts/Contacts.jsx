@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./Contacts.styles";
-import { Footer, Button, Notification } from "../../Components";
+import { Footer, Button } from "../../Components";
 
 const token = localStorage.getItem("token");
 

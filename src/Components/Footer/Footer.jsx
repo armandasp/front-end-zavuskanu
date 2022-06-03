@@ -15,9 +15,6 @@ const Footer = () => {
                     <S.Icon href="https://www.instagram.com/zavuskanu/">
                     <FontAwesomeIcon icon={["fab", "instagram"]} />
                     </S.Icon>
-                    <S.Icon href="https://twitter.com/">
-                    <FontAwesomeIcon icon={["fab", "twitter"]} />
-                    </S.Icon>
                 </div>
             </S.Contacts>
             <p>Copyright 2021 - All right reserved.</p>

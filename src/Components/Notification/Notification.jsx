@@ -2,21 +2,23 @@ import React from "react";
 import * as S from "./Notification.styles";
 
 const Notification = ({ color, children }) => {
-  let background, display;
+  let background, opacity;
 
   switch (color) {
     case "success":
       background = "lightgreen";
-      display = "inline-block";
+      opacity = "1";
       break;
     case "error":
       background = "red";
+      opacity = "1";
       break;
     default:
       background = "grey";
+      opacity = "1";
   }
   return (
-    <S.note id="note" style={{ background, display }}>
+    <S.note id="note" style={{ background, opacity }}>
       <S.deleteButton
         onClick={() => {
           document.getElementById("note").style.opacity = "0";

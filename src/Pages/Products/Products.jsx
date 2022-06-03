@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Block, Footer, Notification } from "../../Components";
+import { Block, Footer } from "../../Components";
 import * as S from "./Products.styles";
 import img from "./prekes.jpg";
 // import img from "./items/IMG_4603.jpg";
@@ -23,7 +23,6 @@ const Products = () => {
   return (
     <div>
       <S.Img src={img} alt="cookies" />
-      {/* <Notification color="success">Prekė pridėta</Notification> */}
       <S.Title>Visos prekės</S.Title>
       {!items && <h1>Loading...</h1>}
       {items && items.length === 0 && <h1>Nėra prekių</h1>}
@@ -52,8 +51,7 @@ const Products = () => {
                   if (!data.msg) {
                     return alert("Turite prisijungti");
                   }
-                  <Notification color="success">Prekė pridėta</Notification>
-                  // return alert("Prekė pridėta");
+                  return alert("Prekė pridėta");
                 })
                 .catch((err) => alert(err));
             }}

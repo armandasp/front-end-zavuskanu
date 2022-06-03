@@ -6,7 +6,6 @@ export const note = styled.div`
   font-size: 1rem;
   padding: 1rem;
   min-width: 20%;
-  display: none;
   position: fixed;
   opacity: 1;
   top: 4rem;

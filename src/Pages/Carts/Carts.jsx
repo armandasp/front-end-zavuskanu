@@ -4,6 +4,7 @@ import * as S from "./Carts.styles";
 import { FaTrash } from "react-icons/fa";
 import jwt_decode from "jwt-decode";
 const token = localStorage.getItem("token");
+console.log(token);
 
 if (token) {
   var decoded = jwt_decode(token);
@@ -128,6 +129,7 @@ const Carts = () => {
                   products: items.map((item) => item.title),
                   totalPrice: prices.reduce((a, b) => a + b).toFixed(2),
                   name: decoded.name,
+                  email: decoded.email,
                   phone: userInputs.phone,
                   address: userInputs.address,
                 };
@@ -142,18 +144,16 @@ const Carts = () => {
                   .then((res) => res.json())
                   .then((data) => {
                     if (data.err) {
-                      return alert(data.err);
+                      alert(data.err);
+                      return console.log(allData);
                     }
                     alert(data.msg);
-                    fetch(
-                      `${process.env.REACT_APP_URL}/v1/carts/deletecart`,
-                      {
-                        method: "DELETE",
-                        headers: {
-                          authorization: `Bearer ${token}`,
-                        },
-                      }
-                    )
+                    fetch(`${process.env.REACT_APP_URL}/v1/carts/deletecart`, {
+                      method: "DELETE",
+                      headers: {
+                        authorization: `Bearer ${token}`,
+                      },
+                    })
                       .then((res) => res.json())
                       .then((data) => {
                         if (data.err) {
@@ -167,7 +167,10 @@ const Carts = () => {
               }}
             >
               <Button type="submit">Siųsti užklausą</Button>
-              <p>Paspaudus "Siųsti užklausą", mes gausime jūsų užsakymą ir su jumis susisieksime</p>
+              <p>
+                Paspaudus "Siųsti užklausą", mes gausime jūsų užsakymą ir su
+                jumis susisieksime
+              </p>
             </Form>
           </S.rightSection>
         </S.DivStyle>

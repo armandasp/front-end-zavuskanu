@@ -9,6 +9,7 @@ export const Contacts = styled.section`
   justify-content: space-around;
   align-items: top;
   padding: 1rem;
+  margin-bottom: 4.5rem;
 `;
 export const textArea = styled.textarea`
   resize: none;
